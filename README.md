@@ -28,7 +28,7 @@ For example, ``bethany test/test1 test/test2`` will return:
 
 ## 📝 License
 
-Distributed under the GPLv3 License. See `LICENSE.txt` for more information.
+Distributed under the GPLv3 License. See `LICENSE` for more information.
 
 ## 📬 Contact
 
