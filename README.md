@@ -22,7 +22,7 @@ You can easily use `bethany` as follows:
 bethany <filename>
 ```
 
-For example, ``bethany test/test1 test/test2`` will return:
+For example, ``bethany test/file1 test/file2`` will return:
 
 ![example](images/example.png)
 

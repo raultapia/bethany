@@ -9,7 +9,7 @@ import bethany
 
 class TestBethany(unittest2.TestCase):
     def test1(self):
-        r = bethany.analyze(TEST_FOLDER+'test1')
+        r = bethany.analyze(TEST_FOLDER+'file1')
         self.assertEqual(r['BUG'], 1)
         self.assertEqual(r['FIXME'], 1)
         self.assertEqual(r['HACK'], 1)
@@ -17,7 +17,7 @@ class TestBethany(unittest2.TestCase):
         self.assertEqual(r['TODO'], 1)
 
     def test2(self):
-        r = bethany.analyze(TEST_FOLDER+'test2')
+        r = bethany.analyze(TEST_FOLDER+'file2')
         self.assertEqual(r['BUG'], 0)
         self.assertEqual(r['FIXME'], 0)
         self.assertEqual(r['HACK'], 1)
