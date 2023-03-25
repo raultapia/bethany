@@ -52,7 +52,7 @@ def main():
     ok = False
     for i in range(1, len(sys.argv)):
         if not os.path.isfile(sys.argv[i]):
-            raise FileNotFoundError(f"File {sys.argv[i]} does not exists")
+            raise FileNotFoundError(f"File {sys.argv[i]} does not exist")
         else:
             analyze(sys.argv[i])
             ok = True
