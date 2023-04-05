@@ -13,6 +13,11 @@ A command line tool to list all BUG, TODO, HACK, NOTE, and FIXME keywords in you
 ```bash
 git clone https://github.com/raultapia/bethany
 cd bethany
+sudo python3 setup.py install
+```
+
+In case you want to install only for the current user, replace last line by:
+```bash
 python3 setup.py install --user
 ```
 
