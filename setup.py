@@ -7,7 +7,7 @@ setup(
     license="GPLv3",
     version='1.0.0',
     setup_requires=['setuptools'],
-    install_requires=[],
+    install_requires=['argparse'],
     tests_require=['unittest2'],
     packages=find_packages(include=['bethany']),
     entry_points={'console_scripts': ['bethany=bethany.bethany:main']}

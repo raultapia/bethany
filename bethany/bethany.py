@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import sys
 import os
+import argparse
 
 class Color:
     NAME=''
@@ -21,19 +22,23 @@ class Option:
     NOTE  = Color('NOTE', '\x1b[0;36m', '\x1b[1;30;46m')
     TODO  = Color('TODO', '\x1b[0;32m', '\x1b[1;30;42m')
 
-def awesome_print(string, line, option):
+def awesome_print(string, line, option, filename=''):
     if(option == Option.NONE):
         s = f'{option.BACKGROUND}{string}\x1b[0m'
     else:
-        s = f'{option.BACKGROUND}   {option.PRINTABLE_NAME} {option.FOREGROUND} [Line {line}] {string}\x1b[0m'
+        if filename:
+            s = f'{option.BACKGROUND}   {option.PRINTABLE_NAME} {option.FOREGROUND} {string} [Line {line} @ {filename}]\x1b[0m'
+        else:
+            s = f'{option.BACKGROUND}   {option.PRINTABLE_NAME} {option.FOREGROUND} [Line {line}] {string}\x1b[0m'
     print(s)
     return len(s)
 
-def analyze(filename):
+def analyze(filename, continuous=False):
     ret = {"BUG": 0, "FIXME": 0, "HACK": 0, "NOTE": 0, "TODO": 0}
     options = [Option.BUG, Option.FIXME, Option.HACK, Option.NOTE, Option.TODO]
     cnt = 0
-    maxl = awesome_print(f'File: {filename}', None, Option.NONE)
+    maxl = 0
+    if not continuous: maxl = awesome_print(f'File: {filename}', None, Option.NONE)
     with open(filename) as f:
         for line in f:
             cnt += 1
@@ -43,18 +48,23 @@ def analyze(filename):
                     line = line[x+len(option.NAME):-1]
                     line = line[1:] if line[0] == ':' else line
                     line = line.rstrip().lstrip()
-                    maxl = max(maxl, awesome_print(line, cnt, option))
+                    maxl = max(maxl, awesome_print(line, cnt, option, filename*continuous))
                     ret[option.NAME] += 1
-    awesome_print("-"*(maxl-20), None, Option.NONE)
+    if not continuous: awesome_print("-"*(maxl-20), None, Option.NONE)
     return ret
 
 def main():
+    parser = argparse.ArgumentParser(description='A command line tool to list all BUG, TODO, HACK, NOTE, and FIXME keywords in your code.')
+    parser.add_argument('files', nargs='+', help='files to analyze')
+    parser.add_argument('-c', '--continuous', action='store_true', help='enable continuous mode')
+    args = parser.parse_args()
+
     ok = False
-    for i in range(1, len(sys.argv)):
-        if not os.path.isfile(sys.argv[i]):
-            raise FileNotFoundError(f"File {sys.argv[i]} does not exist")
+    for i in range(len(args.files)):
+        if not os.path.isfile(args.files[i]):
+            raise FileNotFoundError(f"File {args.files[i]} does not exist")
         else:
-            analyze(sys.argv[i])
+            analyze(args.files[i],args.continuous)
             ok = True
     if not ok:
         raise ValueError("Not valid file(s) provided")

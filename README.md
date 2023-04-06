@@ -31,6 +31,14 @@ For example, ``bethany test/file1 test/file2`` will return:
 
 ![example](images/example.png)
 
+## 🔩 Options
+#### Continuous mode
+Continuous mode is enabled using flag ``-c`` or ``--continuous``. Headers and separators are removed from the output in continuous mode.
+
+For example, ``bethany -c test/file1 test/file2`` will return:
+
+![example_continuous](images/example_continuous.png)
+
 ## 📝 License
 
 Distributed under the GPLv3 License. See `LICENSE` for more information.
