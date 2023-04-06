@@ -1,3 +1,4 @@
 argparse
+pytest
 setuptools
 unittest2
