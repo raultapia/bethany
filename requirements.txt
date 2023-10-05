@@ -1,4 +1,4 @@
 argparse
 pytest
 setuptools
-unittest2
+tox
