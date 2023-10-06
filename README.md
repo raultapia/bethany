@@ -1,6 +1,6 @@
 <div align="center" style="margin-bottom: 10px;">
 <a href="https://github.com/raultapia/bethany">
-<img src="images/logo.png" alt="logo">
+<img src="https://raw.githubusercontent.com/raultapia/bethany/main/.github/assets/logo.png" alt="logo">
 </a>
 </div>
 
@@ -29,7 +29,7 @@ bethany <filename>
 
 For example, ``bethany test/file1 test/file2`` will return:
 
-![example](images/example.png)
+![example](https://raw.githubusercontent.com/raultapia/bethany/main/.github/assets/example.png)
 
 ## 🔩 Options
 #### Continuous mode
@@ -37,7 +37,7 @@ Continuous mode is enabled using flag ``-c`` or ``--continuous``. Headers and se
 
 For example, ``bethany -c test/file1 test/file2`` will return:
 
-![example_continuous](images/example_continuous.png)
+![example_continuous](https://raw.githubusercontent.com/raultapia/bethany/main/.github/assets/example_continuous.png)
 
 ## 📝 License
 
