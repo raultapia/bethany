@@ -8,17 +8,9 @@
 A command line tool to list all BUG, TODO, HACK, NOTE, and FIXME keywords in your code.
 </p>
 
-## ⚙️ Getting Started
-
+## ⚙️ Installation
 ```bash
-git clone https://github.com/raultapia/bethany
-cd bethany
-sudo python3 setup.py install
-```
-
-In case you want to install only for the current user, replace last line by:
-```bash
-python3 setup.py install --user
+pip install bethany
 ```
 
 ## 🖥️ Usage
@@ -27,17 +19,17 @@ You can easily use `bethany` as follows:
 bethany <filename>
 ```
 
-For example, ``bethany test/file1 test/file2`` will return:
+For example, ``bethany tests/file1 tests/file2`` will return:
 
-![example](https://raw.githubusercontent.com/raultapia/bethany/main/.github/assets/example.png)
+![example1](https://raw.githubusercontent.com/raultapia/bethany/main/.github/assets/example1.png)
 
 ## 🔩 Options
 #### Continuous mode
 Continuous mode is enabled using flag ``-c`` or ``--continuous``. Headers and separators are removed from the output in continuous mode.
 
-For example, ``bethany -c test/file1 test/file2`` will return:
+For example, ``bethany -c tests/file1 tests/file2`` will return:
 
-![example_continuous](https://raw.githubusercontent.com/raultapia/bethany/main/.github/assets/example_continuous.png)
+![example2](https://raw.githubusercontent.com/raultapia/bethany/main/.github/assets/example2.png)
 
 ## 📝 License
 
