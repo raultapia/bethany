@@ -13,7 +13,7 @@ setup(
     author_email="raultapia@us.es",
     url='https://github.com/raultapia',
     license="GPLv3",
-    version='1.0.4',
+    version='1.0.5',
     description='A command line tool to list all BUG, TODO, HACK, NOTE, and FIXME keywords in your code.',
     long_description=readme,
     long_description_content_type='text/markdown',
