@@ -46,12 +46,13 @@ def analyze(filename, continuous=False):
                 x = line.find(option.NAME)
                 if x >= 0:
                     line = line[x + len(option.NAME):-1]
-                    line = line[1:] if line[0] == ":" else line
-                    line = line.rstrip().lstrip()
-                    maxl = max(
-                        maxl, awesome_print(
-                            line, cnt, option, filename * continuous)
-                    )
+                    if len(line) > 0:
+                        line = line[1:] if line[0] == ":" else line
+                        line = line.rstrip().lstrip()
+                    else:
+                        line = "<NO MESSAGE>"
+                    n = awesome_print(line, cnt, option, filename * continuous)
+                    maxl = max(maxl, n)
                     ret[option.NAME] += 1
     if not continuous:
         awesome_print("-" * (maxl - 20), None, Option.NONE)
