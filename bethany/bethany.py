@@ -43,7 +43,7 @@ def analyze(filename, continuous=False):
         for line in f:
             cnt += 1
             for option in options:
-                x = line.find(option.NAME)
+                x = line.find(option.NAME + ":")
                 if x >= 0:
                     line = line[x + len(option.NAME):-1]
                     if len(line) > 0:
