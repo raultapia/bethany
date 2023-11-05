@@ -19,6 +19,7 @@ setup(
     long_description_content_type='text/markdown',
     setup_requires=['setuptools'],
     install_requires=['argparse'],
+    tests_require=['pytest', 'flake8', 'tox'],
     packages=find_packages(include=['bethany']),
     entry_points={'console_scripts': ['bethany=bethany.bethany:main']}
 )
